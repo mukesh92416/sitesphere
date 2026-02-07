@@ -1,0 +1,75 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="section">
+
+<h1>Contact SiteSphere</h1>
+
+<p class="sub">
+Have a project in mind? Send a message and I’ll get back to you soon.
+</p>
+
+
+<div class="contact-container">
+
+<!-- ===== FORM AREA ===== -->
+<!-- ===== FORM AREA ===== -->
+<div class="contact-form">
+
+    <label>Your Name</label>
+    <input id="name" type="text" placeholder="Enter your name">
+
+    <label>Email</label>
+    <input id="email" type="email" placeholder="Enter your email">
+
+    <label>Subject</label>
+    <input id="subject" type="text" placeholder="Website / Landing Page / Tool">
+
+    <label>Message</label>
+    <textarea id="msg" placeholder="Describe your idea..."></textarea>
+
+    <button class="btn" onclick="sendMail()">
+        Send Message
+    </button>
+
+</div>
+
+
+
+
+<!-- ===== DIRECT CONTACT ===== -->
+<div class="contact-info">
+
+<h3>Quick Contact</h3>
+
+<div class="email-box">
+📧  
+<a href="mailto:sitesphere229@gmail.com">
+sitesphere229@gmail.com
+</a>
+</div>
+
+
+<p>
+📱 WhatsApp: 8252503218
+</p>
+
+
+<a class="btn"
+target="_blank"
+href="https://wa.me/918252503218?text=Hello%20SiteSphere,%20I%20want%20to%20discuss%20my%20project">
+Chat on WhatsApp</a>
+
+
+<h3 style="margin-top:20px">Working Hours</h3>
+
+<p>Mon – Sat : 9 AM – 9 PM</p>
+
+</div>
+
+</div>
+
+</div>
+
+{% endblock %}

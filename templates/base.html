@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>SiteSphere</title>
+
+    <!-- Link to external CSS -->
+    <link rel="stylesheet" href="/static/css/style.css">
+</head>
+
+<body>
+
+<div class="page-container">
+
+<div class="content-wrap">
+
+
+<!-- NAVBAR -->
+<div class="nav">
+    <img src="/static/images/logo.png" width="50">
+    <h2>SiteSphere</h2>
+
+    <a href="/">Home</a>
+    <a href="/services">Services</a>
+    <a href="/portfolio">Portfolio</a>
+    <a href="/contact">Contact</a>
+    <button onclick="toggleView()" class="view-btn">
+    Switch View
+</button>
+<button onclick="zoomOut()" class="view-btn">A-</button>
+<button onclick="zoomIn()" class="view-btn">A+</button>
+
+
+</div>
+
+
+<!-- PAGE CONTENT -->
+<div class="main-content">
+    {% block content %}
+    {% endblock %}
+</div>
+
+
+</div>   <!-- CLOSE content-wrap  (CORRECT PLACE) -->
+
+
+<!-- FOOTER -->
+<footer class="footer">
+
+    <div class="footer-content">
+
+        <p>
+            © <script>document.write(new Date().getFullYear())</script> SiteSphere.  
+            All Rights Reserved.
+        </p>
+
+        <p>
+            📧 Email: sitesphere229@gmail.com  
+            &nbsp; | &nbsp;
+            📱 WhatsApp: 8252503218
+        </p>
+
+        <p class="credit">
+            Designed & Developed by <strong>SiteSphere</strong>
+        </p>
+
+    </div>
+
+</footer>
+
+
+</div>   <!-- CLOSE page-container -->
+
+
+<!-- FLOATING WHATSAPP BUTTON -->
+<a href="https://wa.me/918252503218?text=Hello%20I%20want%20a%20website%20from%20SiteSphere"
+   class="whatsapp-float"
+   target="_blank">
+
+   💬 Chat on WhatsApp
+
+</a>
+<script>
+const words = [
+"Websites",
+"Landing Pages",
+"Web Tools",
+"Business Sites",
+"Student Projects"
+];
+
+let i = 0;
+let j = 0;
+let current = "";
+let isDeleting = false;
+
+function type() {
+  current = words[i];
+
+  if (isDeleting) {
+    document.getElementById("typing").innerHTML =
+      current.substring(0, j--);
+  } else {
+    document.getElementById("typing").innerHTML =
+      current.substring(0, j++);
+  }
+
+  if (!isDeleting && j === current.length + 1) {
+    isDeleting = true;
+    setTimeout(type, 1000);
+    return;
+  }
+
+  if (isDeleting && j === 0) {
+    isDeleting = false;
+    i++;
+    if (i === words.length) i = 0;
+  }
+
+  setTimeout(type, isDeleting ? 60 : 120);
+}
+
+type();
+</script>
+<script>
+function toggleFAQ(el) {
+    el.classList.toggle('open');
+}
+</script>
+<script>
+// ----- DEVICE AUTO DETECT -----
+function autoDetect() {
+    let saved = localStorage.getItem("viewMode");
+
+    if (saved) {
+        document.body.classList.add(saved + "-mode");
+        return;
+    }
+
+    // Detect phone
+    if (window.innerWidth < 768) {
+        document.body.classList.add("mobile-mode");
+        localStorage.setItem("viewMode", "mobile");
+    } else {
+        document.body.classList.add("desktop-mode");
+        localStorage.setItem("viewMode", "desktop");
+    }
+}
+
+// ----- SWITCH VIEW MANUALLY -----
+function toggleView() {
+    let mode = localStorage.getItem("viewMode");
+
+    document.body.classList.remove("mobile-mode");
+    document.body.classList.remove("desktop-mode");
+
+    if (mode === "desktop") {
+        document.body.classList.add("mobile-mode");
+        localStorage.setItem("viewMode", "mobile");
+    } else {
+        document.body.classList.add("desktop-mode");
+        localStorage.setItem("viewMode", "desktop");
+    }
+}
+
+// ----- ZOOM CONTROL -----
+let zoomLevel = 1;
+
+function zoomIn() {
+    zoomLevel += 0.1;
+    document.body.style.zoom = zoomLevel;
+}
+
+function zoomOut() {
+    zoomLevel -= 0.1;
+    if (zoomLevel < 0.7) zoomLevel = 0.7;
+    document.body.style.zoom = zoomLevel;
+}
+
+// Run on page load
+window.onload = autoDetect;
+</script>
+<script>
+function sendMail() {
+
+    let name = document.getElementById("name").value;
+    let email = document.getElementById("email").value;
+    let subject = document.getElementById("subject").value;
+    let msg = document.getElementById("msg").value;
+
+    let body =
+`Name: ${name}
+Email: ${email}
+
+Message:
+${msg}`;
+
+    let link = "mailto:sitesphere229@gmail.com"
+        + "?subject=" + encodeURIComponent(subject)
+        + "&body=" + encodeURIComponent(body);
+
+    window.location.href = link;
+}
+</script>
+
+</body>
+</html>

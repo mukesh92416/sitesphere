@@ -1,0 +1,103 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="hero">
+    <div class="overlay">
+        <h1>Welcome to SiteSphere</h1>
+
+        <h2 id="typing"></h2>
+
+        <a class="btn" href="/services">View Services</a>
+    </div>
+</div>
+
+
+<div class="section">
+
+    <h2>My Live Websites</h2>
+
+    <div class="portfolio">
+
+        <div class="card">
+            <h3>Stylish AI Name Generator</h3>
+             <div class="badges">
+        <span>Flask</span>
+        <span>Python</span>
+        <span>AI</span>
+    </div>
+            <p>Generate creative and stylish names using AI.</p>
+
+            <a class="btn" target="_blank"
+            href="https://stylish-ai-name-generator.onrender.com">
+            Open Website</a>
+        </div>
+
+
+        <div class="card">
+            <h3>Vertex Website</h3>
+            <p>Modern responsive business website.</p>
+
+            <a class="btn" target="_blank"
+            href="https://vertex-website-tjm7.onrender.com">
+            Open Website</a>
+        </div>
+
+
+        <div class="card">
+            <h3>Image Compressor</h3>
+              <div class="badges">
+        <span>Flask</span>
+        <span>Python</span>
+        <span>AI</span>
+    </div>
+            <p>Django based image size reducer.</p>
+
+            <a class="btn" target="_blank"
+            href="https://image-compressor-django.onrender.com">
+            Open Website</a>
+        </div>
+
+
+        <div class="card">
+            <h3>Instagram Video Downloader</h3>
+              <div class="badges">
+        <span>Flask</span>
+        <span>Python</span>
+        <span>AI</span>
+    </div>
+            <p>Download Instagram reels & videos easily.</p>
+
+            <a class="btn" target="_blank"
+            href="https://insstagram-video-downloader.onrender.com">
+            Open Website</a>
+        </div>
+
+    </div>
+
+</div>
+<div class="faq">
+
+<div class="q" onclick="this.classList.toggle('open')">
+    <h4>How long to build a website?</h4>
+    <p>Normally 2–5 days depending on features.</p>
+</div>
+
+<div class="q" onclick="this.classList.toggle('open')">
+    <h4>Do you provide hosting?</h4>
+    <p>I help you deploy on free or paid hosting.</p>
+</div>
+
+<div class="q" onclick="this.classList.toggle('open')">
+    <h4>Can I edit website later?</h4>
+    <p>Yes! I can add admin panel if needed.</p>
+</div>
+
+<div class="q" onclick="this.classList.toggle('open')">
+    <h4>Payment method?</h4>
+    <p>UPI / Bank Transfer / 50% advance.</p>
+</div>
+
+</div>
+
+{% endblock %}
